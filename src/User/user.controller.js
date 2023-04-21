@@ -85,3 +85,57 @@ exports.registerUser = async(req, res)=>{
         return res.status(500).send({message: 'Error server'});
     }
 }
+
+
+
+
+//Obtener todos los usuario
+exports.getUsers = async(req, res)=>{
+    try{
+        let existUsers = await User.find();
+        return res.send({message: 'Users', existUsers})
+    }catch(e){
+        console.error(e)
+        return res.status(500).send({message: 'Error Server'})
+    }
+}
+
+
+
+//Obtener un usuario
+exports.getUser = async(req, res)=>{
+    try{
+        let params = req.params._id;
+        let exitUser = await User.findOne({_id: params})
+        if(!exitUser) return res.status(404).send({message: 'User not found'});
+        return res.send({message: 'User found', exitUser})
+    }catch(e){
+        console.error(e)
+        return res.status(500).send({message: 'Error Server'})
+    }
+}
+
+
+//Eliminar un usuario
+exports.deleteUser = async(req, res)=>{
+    try{
+        let params = req.params._id;
+        let exitUser = await User.findOneAndDelete({_id: params});
+        if(!exitUser) return res.status(404).send({message: 'User not found'});
+        return res.send({message: 'User delete', exitUser});
+    }catch(e){
+        console.error(e);
+        return res.status(500).send({message: 'Error Server'});
+    }
+}
+
+
+//Login
+exports.login = async(req, res)=>{
+    try{
+        let data = req.body
+    }catch(e){
+        console.error(e)
+        return res.status(500).send({message: 'Error Server'})
+    }
+}

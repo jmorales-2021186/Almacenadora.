@@ -33,7 +33,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
     uppercase: true
-}
+    },
+    comment: {
+        type: String
+    }
 },{
     versionKey: false
 })

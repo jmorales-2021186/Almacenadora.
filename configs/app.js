@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT
 
 //Exportar rutas
-const userRoutes = require('../src/User/user.reoutes');
+const userRoutes = require('../src/user/user.reoutes');
 
 
 app.use(express.urlencoded({extended: false}));
