@@ -18,6 +18,7 @@ app.use(morgan())
 
 
 exports.initServer = ()=>{
-    app.listen(port)
+    app.listen(port);
+    console.log(`Server http running in port ${port}`);
 }
 
