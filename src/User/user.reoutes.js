@@ -11,5 +11,6 @@ api.post('/registerAdmin', userController.registerAdmin);
 api.get('/getUsers', userController.getUsers)
 api.get('/getUser/:_id', userController.getUser);
 api.delete('/delete/:id', userController.deleteUser);
+api.post('/login', userController.login);
 
 module.exports = api;

@@ -2,6 +2,7 @@
 
 const User = require('./user.model');
 const { validateDate, encrypt, checkPassword } = require('../utils/validate');
+const { createToken } = require('../../../../Users/User/Desktop/Login/VetSystem/src/services/jwt');
 
 exports.test = async(req, res)=>{
     return res.send({message: 'Test is running'})
@@ -133,7 +134,24 @@ exports.deleteUser = async(req, res)=>{
 //Login
 exports.login = async(req, res)=>{
     try{
-        let data = req.body
+        let data = req.body;
+        let credentials = {
+            username: data.username,
+            password: data.password
+        }
+        let validate = validateDate(credentials);
+        if(validate) return res.status(400).send(validate)
+
+        //Buscarlo en la base de datos
+        let user = await User.findOne({username: data.username});
+        console.log(user);
+
+        //vaidar la contraseña
+         if(user && await checkPassword(data.password, user.password)){
+            let token = await createToken(user)
+            return res.send({message: `Bienvenid@ ${user.name}`, token})
+        }
+        return res.status(401).send({message: 'Invalid credentials'});
     }catch(e){
         console.error(e)
         return res.status(500).send({message: 'Error Server'})
