@@ -2,7 +2,7 @@
 
 const User = require('./user.model');
 const { validateDate, encrypt, checkPassword } = require('../utils/validate');
-const { createToken } = require('../../../../Users/User/Desktop/Login/VetSystem/src/services/jwt');
+const { createToken } = require('../services/jwt');
 
 exports.test = async(req, res)=>{
     return res.send({message: 'Test is running'})
