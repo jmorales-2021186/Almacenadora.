@@ -12,6 +12,9 @@ const port = process.env.PORT
 //Exportar rutas
 const userRoutes = require('../src/user/user.reoutes');
 const serviciosRoutes = require('../src/AdittionalsServices/servicios.routes')
+const storageRoutes = require("../src/storages/storage.routes")
+const leaseRoutes = require("../src/lease/lease.routes")
+
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -22,7 +25,8 @@ app.use(morgan('dev'))
 //Utilizar las rutas
 app.use('/user', userRoutes);
 app.use('/servicios', serviciosRoutes)
-
+app.use('/storage', storageRoutes)
+app.use('/lease', leaseRoutes)
 
 exports.initServer = ()=>{
     app.listen(port);
