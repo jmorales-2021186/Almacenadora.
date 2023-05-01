@@ -1,12 +1,13 @@
 import React, { useState, useEffect, createContext } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { App } from './App'
-import { NotFoundPage } from './pages/NotFound/NotFoundPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage/HomePage'
 import { LoginPage } from './pages/LogIn/LoginPage'
 import { BodegasPage } from './pages/BodegasPage/BodegasPage'
 import { AddBodega } from './pages/BodegasPage/AddBodega'
 import { UpdateBodega } from './pages/BodegasPage/UpdateBodega';
+import { AddUser } from './pages/NewUser/AddUser';
 
 export const NombreContexto = createContext();
 
@@ -45,6 +46,10 @@ export const Index = () => {
                 {
                     path:'/updateB/:id',
                     element: <UpdateBodega />
+                }, 
+                {
+                    path: '/addUser', 
+                    element: <AddUser> </AddUser>
                 }
             ]
         }

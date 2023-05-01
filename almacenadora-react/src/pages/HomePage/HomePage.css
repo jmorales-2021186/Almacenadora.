@@ -12,6 +12,9 @@
     font-weight: normal;
     font-style:normal ;
 }
+li{
+    list-style: none;
+}
 
 
 .contenedor{
@@ -141,7 +144,7 @@
 }
 
 .altura{
-    height: 80vh;
+    height: 50vh;
 }
 
 
