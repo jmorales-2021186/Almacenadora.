@@ -6,6 +6,7 @@ const storageController = require('./storage.controller');
 
 api.post('/save', storageController.addStorage);
 api.get('/get', storageController.getStorages);
+api.get('/get/:id', storageController.getStorage)
 api.get('/getByName', storageController.searchByNameStorage);
 api.put('/update/:id', storageController.updateStorage);
 api.delete('/delete/:id', storageController.deleteStorage);

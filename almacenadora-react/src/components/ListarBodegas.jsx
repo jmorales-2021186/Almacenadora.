@@ -1,28 +1,54 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {Link} from 'react-router-dom'
+import { NombreContexto } from '../Index'
 
-export const ListarBodegas = ({id, name}) => {
+export const ListarBodegas = ({ id, name, description, location, size, price, deleteBodega }) => {
+    
+    const { dataUser } = useContext(NombreContexto)
+
+    
+    
     return (
         <>
-            <div className="row mt-5">
-                <div className="col-sm-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">{name}</h5>
-                            <p className="card-text">Con texto de apoyo a continuación como introducción natural a contenido adicional.</p>
-                            <a href="#" className="btn btn-primary">Ir a algún lugar</a>
-                        </div>
-                    </div>
+        
+             <div className="card m-5">
+                <div className="card-header">
+                    bodega
                 </div>
-                <div className="col-sm-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Tratamiento especial del título</h5>
-                            <p className="card-text">Con texto de apoyo a continuación como introducción natural a contenido adicional.</p>
-                            <a href="#" className="btn btn-primary">Ir a algún lugar</a>
-                        </div>
-                    </div>
+                <div className="card-body">
+                    <h5 className="card-title">{name}</h5>
+                    <p className="card-text">Descripcion: {description}</p>
+                    <p className="card-text">Tamaño: {size}</p>
+                    <p className="card-text">Precio: {price}</p>
+                    <p className="card-text">Locacion: {location}</p>
+
+                    {
+                        dataUser.role === 'TRABAJADOR' ? (
+
+                            <Link   className="btn btn-primary">Reservar</Link>
+                        ): (
+                            <Link  className="btn btn-success ms-1">Go somewhere</Link>
+                        )
+
+                    }
+
+                    {
+                        dataUser.role === 'ADMIN'
+                        ?(
+                            <>
+                                <Link to={`/updateB/${id}`}  className="btn btn-warning ms-1">Editar</Link>
+                                <Link onClick={()=> deleteBodega(id)}  className="btn btn-danger ms-1">Eliminar</Link>
+                            </>
+                         ):<></>
+                    }
+
+
+
                 </div>
-            </div>
+                <div className="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div> 
         </>
     )
 }
