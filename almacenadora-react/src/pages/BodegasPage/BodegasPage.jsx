@@ -9,18 +9,35 @@ export const BodegasPage = () => {
 
     const { disponible, setDisponible, dataUser } = useContext(NombreContexto)
     const [bodegas, setBodegas] = useState([]);
+    const [alamacenador, setAlmacenador] = useState({})
+    const [busqueda, setBusqueda]= useState('')
 
     const getBodegas = async () => {
         try {
             const { data } = await axios('http://localhost:3418/storage/get');
             setBodegas(data.storages)
-
+            setAlmacenador(data.storages)
         } catch (e) {
             console.log(e);
         }
     }
 
     useEffect(() => getBodegas, [])
+
+    const handleChange = (e) => {
+        setBusqueda(e.target.value)
+        filtrar(e.target.value)
+    }
+
+    //Busqueda
+    const filtrar = (terminoDeBusqueda)=>{
+        var resultados = alamacenador.filter((element)=>{
+            if(element.name.toString().toLowerCase().includes(terminoDeBusqueda.toLowerCase())){
+                return element;
+            }
+        })
+        setBodegas(resultados);
+    }
 
     //Eliminar bodegas
     const deleteBodega = async (id) =>{
@@ -53,6 +70,8 @@ export const BodegasPage = () => {
                         type="search"
                         placeholder="Buscar"
                         aria-label="Buscar"
+                        value={busqueda}
+                        onChange={handleChange}
                     />
                     <button className="btn btn-outline-success" type="submit">Buscar</button>
                 </form>

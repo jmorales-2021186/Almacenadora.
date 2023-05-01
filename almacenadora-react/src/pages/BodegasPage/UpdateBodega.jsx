@@ -6,6 +6,7 @@ export const UpdateBodega = () => {
 
     const navigate = useNavigate()
     const [bodegas, setBodegas] = useState({});
+    
     const { id } = useParams()
 
     const getBodega = async () => {
@@ -73,7 +74,7 @@ export const UpdateBodega = () => {
                     <button className="btn btn-success m-4" > ADD </button>
                 </Link>
                 {/* parametro.preventDefault(); mps sirve para refrescar los datos en la tabla de products */}
-                <Link to=''>{/* Regresar */}
+                <Link to='/bodegas'>{/* Regresar */}
                     <button className="btn btn-danger m-3" >Cancel</button>
                 </Link>
 
