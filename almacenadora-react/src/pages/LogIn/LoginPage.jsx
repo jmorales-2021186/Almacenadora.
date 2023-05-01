@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { NombreContexto } from '../Index'
-import './login.css'
+import { NombreContexto } from '../../Index'
+import '../LogIn/login.css'
 
 export const LoginPage = () => {
 

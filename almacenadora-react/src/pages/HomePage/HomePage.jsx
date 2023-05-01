@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { NavBar } from '../components/NavBar'
+import { NavBar } from '../../components/NavBar'
 import './HomePage.css'
 import axios from 'axios'
-import { Comentarios } from '../components/Comentarios'
+import { Comentarios } from '../../components/Comentarios'
 
 
 
@@ -53,7 +53,7 @@ export const HomePage = () => {
     <>
       <NavBar></NavBar>
       <section className="hola">
-        <h2>Almace<samp className='verde'>nadora</samp> </h2>
+        <h2>La mejor manera de almacenar tus productos </h2>
       </section>
 
 

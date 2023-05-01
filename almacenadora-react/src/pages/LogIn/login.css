@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'TrebuchetMS';
-    src: url(../fonts/fonts/TrebuchetMS.ttf) ;
+    src: url(../../fonts/fonts/TrebuchetMS.ttf) ;
     font-weight: normal;
     font-style:normal ;
 }
 
 @font-face {
     font-family: 'BebasNeue';
-    src: url(../fonts/fonts/BebasNeue.otf) ;
+    src: url(../../fonts/fonts/BebasNeue.otf) ;
     font-weight: normal;
     font-style:normal ;
 }
@@ -24,7 +24,7 @@
         0deg,
         rgba(0,0,0,.2),
         rgba(0,0,0,.2)),  */
-        url(../assets/fondo.jpg);
+        url(../../assets/fondo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center center;
