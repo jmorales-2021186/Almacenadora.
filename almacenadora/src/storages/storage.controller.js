@@ -36,6 +36,18 @@ exports.getStorages = async(req, res)=>{
     }
 }
 
+exports.getStorage = async(req, res)=>{
+    try{
+        let data = req.params.id;
+        let storage = await Storage.findOne({_id: data});
+        if(!storage) return res.status(404).send({message: 'Stronge not found'});
+        return res.send({storage})
+    }catch(e){
+        console.log(e);
+        return res.status(500).send({message: 'Error server'});
+    }
+}
+
 exports.updateStorage = async(req, res)=>{
     try {
         let data = req.body;

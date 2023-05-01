@@ -5,7 +5,7 @@ import { NombreContexto } from '../Index'
 
 export const NavBar = () => {
 
-    const { loggedIn, setLoggedIn } = useContext(NombreContexto)
+    const { loggedIn, setLoggedIn, dataUser, setDataUser } = useContext(NombreContexto)
 
     return (
         <>
@@ -13,8 +13,8 @@ export const NavBar = () => {
                 <div className="contenedor">
                     <h1>Almace<span className='verde'>nadora</span></h1>
                     <nav>
-                        <Link>
-                            Bodegas
+                        <Link to='/bodegas'>
+                            🏬Bodegas
                         </Link>
 
                         <Link>
@@ -24,9 +24,22 @@ export const NavBar = () => {
                             Servicios Adicionales
                         </Link>
 
+{/* 
+                        <Link>👤{dataUser.role}</Link> */}
+
+                        {
+                            dataUser.role === 'ADMIN'
+                                ? <Link >Nuevo Usuario</Link>
+                                : <></>
+                        }
+
                         {
                             loggedIn ? (
-                                <Link to='/login'>
+                                <Link to='/' onClick={() => {
+                                    localStorage.clear()
+                                    setDataUser({})
+                                    setLoggedIn(false)
+                                }}>
                                     Cerrar Secion
                                 </Link>
                             ) : (
@@ -36,9 +49,7 @@ export const NavBar = () => {
 
                             )
                         }
-                        {
 
-                        }
                     </nav>
                 </div>
             </header>

@@ -148,8 +148,13 @@ exports.login = async(req, res)=>{
 
         //vaidar la contraseña
          if(user && await checkPassword(data.password, user.password)){
+            let userLogged = {
+                name: user.name,
+                username: user.username,
+                role: user.role
+            }
             let token = await createToken(user)
-            return res.send({message: `Bienvenid@ ${user.name}`, token})
+            return res.send({message: `Bienvenid@ ${user.name}`, token, userLogged})
         }
         return res.status(401).send({message: 'Invalid credentials'});
     }catch(e){

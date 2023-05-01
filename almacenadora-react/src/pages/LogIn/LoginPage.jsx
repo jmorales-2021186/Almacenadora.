@@ -6,7 +6,7 @@ import '../LogIn/login.css'
 
 export const LoginPage = () => {
 
-  const { loggedIn, setLoggedIn } = useContext(NombreContexto);
+  const { loggedIn, setLoggedIn,setDataUser } = useContext(NombreContexto);
 
   const navigate = useNavigate();
   const [log, setLog] = useState({
@@ -29,8 +29,8 @@ export const LoginPage = () => {
       if (data.message) {
         alert(data.message)
         localStorage.setItem('token', data.token)//Ingresar e; token
-/*         setDataUser(data.userL)
- */        setLoggedIn(true)//True para que se loggee
+        setDataUser(data.userLogged)
+        setLoggedIn(true)//True para que se loggee
         console.log(loggedIn);
         navigate('/');
       }
