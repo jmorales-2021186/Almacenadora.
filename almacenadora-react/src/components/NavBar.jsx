@@ -19,7 +19,7 @@ export const NavBar = () => {
             <nav>
               <Link to="/bodegas">🏬Bodegas</Link>
 
-              <Link>Servicios</Link>
+              <Link>📑Servicios</Link>
               <Link>Servicios Adicionales</Link>
 
               {/* 
@@ -40,7 +40,7 @@ export const NavBar = () => {
                     setLoggedIn(false);
                   }}
                 >
-                  Cerrar Secion
+                  🔴Cerrar Secion
                 </Link>
               ) : (
                 <Link to="/login">Iniciar Secion</Link>
