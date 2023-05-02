@@ -68,6 +68,10 @@ li{
  }
 
 
+ .navFix{
+    height: 150px;
+ }
+
  .verde{
     color: rgb(4, 167, 31);
  }

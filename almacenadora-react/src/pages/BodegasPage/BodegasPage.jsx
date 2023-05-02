@@ -60,13 +60,12 @@ export const BodegasPage = () => {
 
   return (
     <>
-      <NavBar />
+      <div className="navFix">
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+        <NavBar />
+      </div>
+
+      
 
       <div className="contenedor">
         <form className="d-flex" role="search">
