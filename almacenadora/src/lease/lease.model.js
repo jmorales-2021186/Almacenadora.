@@ -32,4 +32,4 @@ const leaseSchema = mongoose.Schema({
     }
 );
 
-module.exports=mongoose.model('lease', leaseSchema);
+module.exports = mongoose.model('lease', leaseSchema);

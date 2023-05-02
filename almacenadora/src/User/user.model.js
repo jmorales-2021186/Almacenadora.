@@ -21,23 +21,23 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    email:{
-    type: String,
-    required: true
+    email: {
+        type: String,
+        required: true
     },
     phone: {
-    type: String,
-    required: true
+        type: String,
+        required: true
     },
     role: {
-    type: String,
-    required: true,
-    uppercase: true
+        type: String,
+        required: true,
+        uppercase: true
     },
     comment: {
         type: String
     }
-},{
+}, {
     versionKey: false
 })
 
