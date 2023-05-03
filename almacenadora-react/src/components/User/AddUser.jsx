@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { NavBar } from "../../components/NavBar";
-import { useNavigate } from "react-router-dom";
+import { NavBar } from "../NavBar";
+import { useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 
 export const AddUser = () => {
@@ -27,7 +27,7 @@ export const AddUser = () => {
     try {
       e.preventDefault();
       const { data } = await axios.post(
-        "http://localhost:3418/registerAdmin",
+        "http://localhost:3418/user/registerAdmin",
         form
       );
       if (data.message) {
@@ -42,7 +42,6 @@ export const AddUser = () => {
   };
   return (
     <>
-      <NavBar />
       <div className="container ">
         <h3 className="text-center">Sing Up</h3>
         <form className="m-5 text-center">

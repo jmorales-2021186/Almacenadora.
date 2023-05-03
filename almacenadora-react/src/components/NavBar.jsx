@@ -26,7 +26,7 @@ export const NavBar = () => {
                         <Link>👤{dataUser.role}</Link> */}
 
               {dataUser.role === "ADMIN" ? (
-                <Link to="/addUser">Nuevo Usuario</Link>
+                <Link to="/User">Nuevo Usuario</Link>
               ) : (
                 <></>
               )}
