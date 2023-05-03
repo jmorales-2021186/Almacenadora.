@@ -41,3 +41,24 @@ exports.getService = async(req, res)=>{
         return res.status(500).send({message: 'Error getting Service'})
     }
 }
+
+
+exports.update = async(req, res)=>{
+    try{
+        let serviceId = req.params.id;
+        let data = req.body;
+        if(!serviceId != req.user.sub) return res.status(404).send({message:'Dont have permission to do this action'})
+        let update = checkUpddate(data, false);
+        if(!update) return res.status(400).send({message: 'You have submitted some data that cannot be updated'})
+        let updateService = await Servicio.findOneAndUpdate(
+            {_id: serviceId},
+            data,
+            {new: true}
+        )
+        if(!updateService) return res.status(404).send({message: "service not found, not updated"});
+        return res.send({message: 'Service updatedd', updateService})
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting Service'})
+    }
+}
