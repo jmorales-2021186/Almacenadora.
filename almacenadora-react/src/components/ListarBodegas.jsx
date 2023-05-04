@@ -23,10 +23,10 @@ export const ListarBodegas = ({
           <p className="card-text">
             Disponibilidad: {availability ? "Disponible" : "NO DISPONIBLE"}
           </p>
-          <p className="card-text">Descripcion: {description}</p>
-          <p className="card-text">Tamaño: {size}</p>
-          <p className="card-text">Precio: {price}</p>
-          <p className="card-text">Locacion: {location}</p>
+          <p className="card-text">📄Descripcion: {description}</p>
+          <p className="card-text">🏬Tamaño: {size}</p>
+          <p className="card-text">💵Precio: {price}</p>
+          <p className="card-text">🗺️Locacion: {location}</p>
 
           {dataUser.role === "TRABAJADOR" ? (
             <Link className="btn btn-primary">Reservar</Link>

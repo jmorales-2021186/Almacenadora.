@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT
 
 //Exportar rutas
-const userRoutes = require('../src/user/user.reoutes');
+const userRoutes = require('../src/user/user.routes');
 const serviciosRoutes = require('../src/AdittionalsServices/servicios.routes')
 const storageRoutes = require("../src/storages/storage.routes")
 const leaseRoutes = require("../src/lease/lease.routes")
