@@ -5,6 +5,10 @@ import axios from "axios";
 
 export const AddUser = () => {
   const navigate = useNavigate();
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+  }
 
   const [form, setForm] = useState({
     name: "",
@@ -27,12 +31,13 @@ export const AddUser = () => {
     try {
       e.preventDefault();
       const { data } = await axios.post(
-        "http://localhost:3418/registerAdmin",
-        form
+        "http://localhost:3418/user/registerAdmin",
+        form,
+        {headers: headers} 
       );
       if (data.message) {
         alert(data.message);
-        navigate("/login");
+        navigate("/");
       }
     } catch (err) {
       console.log(err);
@@ -42,7 +47,10 @@ export const AddUser = () => {
   };
   return (
     <>
-      <NavBar />
+      <div className="navFix">
+        <NavBar />
+
+      </div>
       <div className="container ">
         <h3 className="text-center">Sing Up</h3>
         <form className="m-5 text-center">

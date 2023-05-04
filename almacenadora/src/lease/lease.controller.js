@@ -1,13 +1,16 @@
 'use strict'
 
 const Lease = require('./lease.model');
-const User = require('../user/user.routes');
+const User = require('../user/user.model');
 const Storage = require('../storages/storage.model');
+const leaseInfo = ['name']
+const strongeInfo = ['name']
 
 exports.createLease = async(req, res)=>{
     try{
         let data = req.body
         let userExist = await User.findOne({_id: data.user});
+        console.log(userExist);
             if(!userExist) return res.status(404).send({message: 'User not found'});
         let storageExist = await Storage.findOne({_id: data.storage});
             if(!storageExist) return res.status(404).send({message: 'Storage not found'});
@@ -31,5 +34,39 @@ exports.createLease = async(req, res)=>{
         
     }catch (err) {
         console.log(err);
+    }
+}
+
+
+
+exports.getLeases = async(req, res) =>{
+    try{
+        let leases = await Lease.find().populate('user', leaseInfo).populate('storage', strongeInfo);
+        return res.send({leases})
+    }catch(e){
+        console.log(e);
+        return res.status(500).send({message: 'Error Server'})
+    }
+}
+
+
+exports.updateLease = async(req, res)=>{
+    try{
+
+    }catch(e){
+        console.log(e);
+        return res.status(500).send({message: 'Error Server'})
+    }
+}
+
+exports.deleteLease = async(req, res)=>{
+    try{
+        let params = req.params.id;
+        let leaseExist = await Lease.findOneAndDelete({_id: params})
+        if(!leaseExist) return res.status(404).send({message: 'Lease not found'})
+        return res.send({message: 'Lease deleted succesfully'})
+    }catch(e){
+        console.log(e);
+        return res.status(500).send({message: 'Error Server'})
     }
 }

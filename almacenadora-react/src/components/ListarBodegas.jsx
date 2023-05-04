@@ -21,19 +21,18 @@ export const ListarBodegas = ({
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">
-            Disponibilidad: {availability ? "Disponible" : "NO DISPONIBLE"}
+            Disponibilidad: {availability ? "✅Disponible" : "❌NO DISPONIBLE"}
           </p>
           <p className="card-text">📄Descripcion: {description}</p>
           <p className="card-text">🏬Tamaño: {size}</p>
-          <p className="card-text">💵Precio: {price}</p>
+          <p className="card-text">💵Precio: Q {price}.00</p>
           <p className="card-text">🗺️Locacion: {location}</p>
 
-          {dataUser.role === "TRABAJADOR" ? (
+          {/* {dataUser.role === "TRABAJADOR" ? (
             <Link className="btn btn-primary">Reservar</Link>
-          ) : (
-            <Link className="btn btn-success ms-1">Go somewhere</Link>
-          )}
-
+          ) : <></>
+          }
+ */}
           {dataUser.role === "ADMIN" ? (
             <>
               <Link to={`/updateB/${id}`} className="btn btn-warning ms-1">
@@ -50,7 +49,7 @@ export const ListarBodegas = ({
             <></>
           )}
         </div>
-        <div className="card-footer text-muted">2 days ago</div>
+        <div className="card-footer text-muted">-GT-</div>
       </div>
     </>
   );

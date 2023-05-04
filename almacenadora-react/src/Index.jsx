@@ -8,6 +8,8 @@ import { BodegasPage } from './pages/BodegasPage/BodegasPage'
 import { AddBodega } from './pages/BodegasPage/AddBodega'
 import { UpdateBodega } from './pages/BodegasPage/UpdateBodega';
 import { AddUser } from './pages/NewUser/AddUser';
+import { ArrendarPage } from './pages/ArrendarPage/ArrendarPage';
+import { AddArrendamiento } from './pages/ArrendarPage/AddArrendamiento';
 
 export const NombreContexto = createContext();
 
@@ -50,7 +52,17 @@ export const Index = () => {
                 {
                     path: '/addUser', 
                     element: <AddUser> </AddUser>
+                },
+                {
+                    path: '/arrendar', 
+                    element: <ArrendarPage/>
+                },
+                {
+                    path: '/addArrendamiento',
+                    element: <AddArrendamiento/>
                 }
+
+
             ]
         }
     ])

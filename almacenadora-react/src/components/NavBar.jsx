@@ -13,11 +13,18 @@ export const NavBar = () => {
           <div className="contenedor">
             <Link to="/">
               <h1>
-                Almace<span className="verde">nadora</span>
+                Almace<span className="verde ">nadora</span>
               </h1>
             </Link>
             <nav>
               <Link to="/bodegas">🏬Bodegas</Link>
+
+              {
+                dataUser.role === 'TRABAJADOR'
+                  ? (
+                    <Link to="/arrendar">Arrendar</Link>
+                  ) : <></>
+              }
 
               <Link>📑Servicios</Link>
               <Link>Servicios Adicionales</Link>
@@ -40,7 +47,7 @@ export const NavBar = () => {
                     setLoggedIn(false);
                   }}
                 >
-                  🔴Cerrar Secion
+                  Cerrar Secion
                 </Link>
               ) : (
                 <Link to="/login">Iniciar Secion</Link>
