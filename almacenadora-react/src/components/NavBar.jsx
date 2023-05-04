@@ -27,7 +27,7 @@ export const NavBar = () => {
               {dataUser.role === "ADMIN" ? (
                 <>
                   <Link to="/User">Nuevo Usuario</Link>
-                  <Link>Servicios Adicionales</Link>
+                  <Link to="/Services">Servicios Adicionales</Link>
                 </>
               ) : (
                 <></>

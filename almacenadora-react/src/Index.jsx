@@ -10,6 +10,9 @@ import { UpdateBodega } from "./pages/BodegasPage/UpdateBodega";
 import { User } from "./pages/NewUser/User";
 import { Table } from "./components/Table/Table";
 import { AddUser } from "./components/User/AddUser";
+import { ListServices } from "./pages/AddServices/ListServices";
+import { AddServices } from "./components/ServicesC/AddServices";
+import { ServicesPage } from "./pages/AddServices/ServicesPage";
 
 export const NombreContexto = createContext();
 
@@ -62,6 +65,17 @@ export const Index = () => {
               exact: true,
               element: <AddUser />,
             },
+          ],
+        },
+        {
+          path: "/Services",
+          element: <ServicesPage></ServicesPage>,
+          children: [
+            {
+              path: "",
+              element: <ListServices />,
+            },
+            { path: "AddService", element: <AddServices /> },
           ],
         },
       ],
