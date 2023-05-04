@@ -8,7 +8,7 @@ const { ensureAuth, isAdmin } = require('../services/authenticated')
 api.get('/test', ensureAuth,userController.test);
 api.post('/register', userController.registerUser);
 api.post('/registerAdmin', [ensureAuth, isAdmin], userController.registerAdmin);
-api.get('/getUsers', [ensureAuth, isAdmin], userController.getUsers)
+api.get('/getUsers', ensureAuth, userController.getUsers)
 api.get('/getUser/:_id',[ensureAuth, isAdmin], userController.getUser);
 api.delete('/delete/:id',[ensureAuth, isAdmin], userController.deleteUser);
 api.post('/login', userController.login);
