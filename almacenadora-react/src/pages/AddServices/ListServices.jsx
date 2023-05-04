@@ -33,21 +33,7 @@ export const ListServices = () => {
     }
   };
 
-  const deleteUser = async (id) => {
-    try {
-      let confirmDelete = confirm("Are you sure to delete this product?");
-      if (confirmDelete) {
-        const { data } = await axios.delete(
-          `http://localhost:3418/user/delete/${id}`,
-          { headers: headers }
-        );
-        getService();
-        alert(`${data.message}: ${data.exitUser.name}`);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
 
   useEffect(() => getService, []);
   if (loading) {
