@@ -29,7 +29,7 @@ export const HomePage = () => {
           </div>
 
           <div className="row">
-              <div className="col-lg-4">
+              <div className="col-lg-4" style={{objectFit: 'contain'}}>
                 <img src={bodega1} alt="" />
               </div>
               <div className="col-lg-4">

@@ -8,10 +8,17 @@ export const UpdateBodega = () => {
     const [bodegas, setBodegas] = useState({});
     
     const { id } = useParams()
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
 
     const getBodega = async () => {
         try {
-            const { data } = await axios(`http://localhost:3418/storage/get/${id}`)
+            const { data } = await axios(
+                `http://localhost:3418/storage/get/${id}`,
+                {headers: headers}
+                )
             console.log(data);
             setBodegas(data.storage)
         } catch (e) {
@@ -31,7 +38,11 @@ export const UpdateBodega = () => {
                 description: document.getElementById('inputDescription').value,
                 availability: document.getElementById('inputAvailability').value
             }
-            const { data } = await axios.put(`http://localhost:3418/storage/update/${id}`, editarBodegas)
+            const { data } = await axios.put(
+                `http://localhost:3418/storage/update/${id}`,
+                 editarBodegas,
+                 {headers: headers}
+                 )
             alert(data.message)
             navigate('/bodegas')
         } catch (e) {

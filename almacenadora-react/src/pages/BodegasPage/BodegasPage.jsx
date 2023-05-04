@@ -11,6 +11,12 @@ export const BodegasPage = () => {
   const [alamacenador, setAlmacenador] = useState({});
   const [busqueda, setBusqueda] = useState("");
 
+  //Headers 
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+  }
+
   const getBodegas = async () => {
     try {
       const { data } = await axios("http://localhost:3418/storage/get");
@@ -29,13 +35,13 @@ export const BodegasPage = () => {
   };
 
   //Busqueda
-  const filtrar = (terminoDeBusqueda) => {
+  const filtrar = (bucar) => {
     var resultados = alamacenador.filter((element) => {
       if (
         element.name
           .toString()
           .toLowerCase()
-          .includes(terminoDeBusqueda.toLowerCase())
+          .includes(bucar.toLowerCase())
       ) {
         return element;
       }
@@ -49,7 +55,8 @@ export const BodegasPage = () => {
       let mensaje = confirm("Seguro de que quiere eliminar la bodega");
       if (mensaje) {
         const { data } = await axios.delete(
-          `http://localhost:3418/storage/delete/${id}`
+          `http://localhost:3418/storage/delete/${id}`,
+          {headers: headers}
         );
         getBodegas();
       }

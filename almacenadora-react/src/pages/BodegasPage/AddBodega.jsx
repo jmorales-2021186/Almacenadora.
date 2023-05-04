@@ -4,6 +4,10 @@ import axios from 'axios'
 
 export const AddBodega = () => {
     const navigate = useNavigate();
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
     
     const addBodegas = async () =>{
         try{
@@ -16,7 +20,11 @@ export const AddBodega = () => {
                 availability: document.getElementById('inputAvailability').value
             }
 
-            const { data } = await axios.post('http://localhost:3418/storage/save', bodegas)
+            const { data } = await axios.post(
+                'http://localhost:3418/storage/save', 
+                 bodegas,
+                 {headers: headers}
+                )
             alert(data.message)
             navigate('/bodegas')
         }catch(e){
