@@ -20,13 +20,15 @@ export const NavBar = () => {
               <Link to="/bodegas">🏬Bodegas</Link>
 
               <Link>📑Servicios</Link>
-              <Link>Servicios Adicionales</Link>
 
               {/* 
                         <Link>👤{dataUser.role}</Link> */}
 
               {dataUser.role === "ADMIN" ? (
-                <Link to="/User">Nuevo Usuario</Link>
+                <>
+                  <Link to="/User">Nuevo Usuario</Link>
+                  <Link>Servicios Adicionales</Link>
+                </>
               ) : (
                 <></>
               )}

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { NavBar } from "../NavBar";
+import React, { useState, useContext } from "react";
+
 import { useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
-
+import { NombreContexto } from "../../Index";
+import { NavBar } from "../../components/NavBar";
 export const AddUser = () => {
   const navigate = useNavigate();
+  const { loggedIn, setLoggedIn, dataUser, setDataUser } =
+    useContext(NombreContexto);
 
   const [form, setForm] = useState({
     name: "",
@@ -25,14 +28,25 @@ export const AddUser = () => {
 
   const register = async (e) => {
     try {
-      e.preventDefault();
-      const { data } = await axios.post(
-        "http://localhost:3418/user/registerAdmin",
-        form
-      );
-      if (data.message) {
-        alert(data.message);
-        navigate("/login");
+      if (dataUser == "ADMIN") {
+        e.preventDefault();
+        const { data } = await axios.post(
+          "http://localhost:3418/user/registerAdmin",
+          form
+        );
+        if (data.message) {
+          alert(data.message);
+          navigate("/login");
+        }
+      } else {
+        e.preventDefault();
+        const { data } = await axios.post(
+          "http://localhost:3418/user/register",
+          form
+        );
+        if (data.message) {
+          alert(data.message);
+        }
       }
     } catch (err) {
       console.log(err);
@@ -42,8 +56,16 @@ export const AddUser = () => {
   };
   return (
     <>
+      <div className="navFix">
+        <NavBar></NavBar>
+      </div>
+
       <div className="container ">
-        <h3 className="text-center">Sing Up</h3>
+        {dataUser.role == "ADMIN" ? (
+          <h3 className="text-center">Sing Up</h3>
+        ) : (
+          <h3 className="text-center">Resgistrate con Nosotros</h3>
+        )}
         <form className="m-5 text-center">
           <div className="mb-3">
             <label className="form-label" htmlFor="">
@@ -112,15 +134,22 @@ export const AddUser = () => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label" htmlFor="">
-              Role
-            </label>
-            <input
-              onChange={handleChange}
-              name="role"
-              className="form-control"
-              type="text"
-            />
+            {dataUser.role == "ADMIN" ? (
+              <>
+                <label className="form-label" htmlFor="">
+                  Role
+                </label>
+
+                <input
+                  onChange={handleChange}
+                  name="role"
+                  className="form-control"
+                  type="text"
+                />
+              </>
+            ) : (
+              <> </>
+            )}
           </div>
           <button onClick={(e) => register(e)} className="btn btn-primary">
             Sign Up

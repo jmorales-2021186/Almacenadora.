@@ -10,7 +10,7 @@ api.post('/register', userController.registerUser);
 api.post('/registerAdmin', [ensureAuth, isAdmin], userController.registerAdmin);
 api.get('/getUsers', [ensureAuth, isAdmin], userController.getUsers)
 api.get('/getUser/:_id',[ensureAuth, isAdmin], userController.getUser);
-api.delete('/delete/:id',[ensureAuth, isAdmin], userController.deleteUser);
+api.delete('/delete/:_id',[ensureAuth, isAdmin], userController.deleteUser);
 api.post('/login', userController.login);
 
 module.exports = api;

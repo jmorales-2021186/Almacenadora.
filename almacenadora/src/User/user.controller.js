@@ -122,6 +122,7 @@ exports.deleteUser = async(req, res)=>{
     try{
         let params = req.params._id;
         let exitUser = await User.findOneAndDelete({_id: params});
+        console.log(params)
         if(!exitUser) return res.status(404).send({message: 'User not found'});
         return res.send({message: 'User delete', exitUser});
     }catch(e){
