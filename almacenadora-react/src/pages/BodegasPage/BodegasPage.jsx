@@ -19,7 +19,7 @@ export const BodegasPage = () => {
 
   const getBodegas = async () => {
     try {
-      const { data } = await axios("http://localhost:3418/storage/get");
+      const { data } = await axios("http://localhost:3418/storage/get", {headers: headers});
       setBodegas(data.storages);
       setAlmacenador(data.storages);
     } catch (e) {

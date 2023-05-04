@@ -20,14 +20,11 @@ export const HomePage = () => {
     <>
       <NavBar></NavBar>
       <section className="hola">
-<<<<<<< HEAD
         <h2 style={{fontSize: '4.5vw'}}>La mejor manera de <span className="verde responsive">almacenar tus productos</span> </h2>
-=======
         <h2 style={{ fontSize: "4.5vw" }}>
           La mejor manera de{" "}
           <span className="verde">almacenar tus productos</span>{" "}
         </h2>
->>>>>>> mhurtado
       </section>
 
       <hr className="m-5 fw-bold" />
@@ -38,7 +35,7 @@ export const HomePage = () => {
 
         <div className="row">
           <div className="col-lg-4" style={{ objectFit: "contain" }}>
-            <img src={bodega1} alt="" />
+            <img src={bodega1} alt="" />v
           </div>
           <div className="col-lg-4">
             <img src={bodega3} alt="" />

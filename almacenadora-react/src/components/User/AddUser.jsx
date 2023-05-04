@@ -32,11 +32,12 @@ export const AddUser = () => {
 
   const register = async (e) => {
     try {
-      if (dataUser == "ADMIN") {
+      if (dataUser.role == "ADMIN") {
         e.preventDefault();
         const { data } = await axios.post(
           "http://localhost:3418/user/registerAdmin",
-          form
+          form,
+          {headers: headers},
         );
         if (data.message) {
           alert(data.message);
