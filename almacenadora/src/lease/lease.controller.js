@@ -1,7 +1,7 @@
 'use strict'
 
 const Lease = require('./lease.model');
-const User = require('../user/user.model');
+const User = require('../user/user.routes');
 const Storage = require('../storages/storage.model');
 
 exports.createLease = async(req, res)=>{
