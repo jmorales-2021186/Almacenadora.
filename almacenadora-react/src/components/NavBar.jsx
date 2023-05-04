@@ -33,7 +33,7 @@ export const NavBar = () => {
 
               {dataUser.role === "ADMIN" ? (
                 <>
-                  <Link to="/User">Nuevo Usuario</Link>
+                  <Link to="/User">Usuarios</Link>
                   <Link to="/Services">Servicios Adicionales</Link>
                 </>
               ) : (
@@ -49,10 +49,10 @@ export const NavBar = () => {
                     setLoggedIn(false);
                   }}
                 >
-                  Cerrar Secion
+                  Cerrar Sesion
                 </Link>
               ) : (
-                <Link to="/login">Iniciar Secion</Link>
+                <Link to="/login">Iniciar Sesion</Link>
               )}
             </nav>
           </div>

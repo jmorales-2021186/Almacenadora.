@@ -6,6 +6,7 @@ exports.addStorage = async(req, res)=>{
     try {
         let data = req.body
         let storage = new Storage(data);
+        /* data.availability = true */
         await storage.save();
         return res.send({message: 'Storage created succesfully'})
     } catch (err) {

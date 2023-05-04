@@ -52,7 +52,7 @@ export const ArrendarPage = () => {
 
 
             <div className="contenedor">
-                <Link to="/addArrendamiento" className="btn btn-primary mt-5 ms-5">
+                <Link to="/addArrendar" className="btn btn-primary mt-5 ms-5">
                     Arrendar Bodega
                 </Link>
 

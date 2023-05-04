@@ -91,6 +91,8 @@ export const BodegasPage = () => {
       </div>
 
       <div className="contenedor">
+
+        {/* Boton solo para admin */}
         {dataUser.role === "ADMIN" ? (
           <Link to="/addBodega" className="btn btn-primary mt-5 ms-5">
             Nueva Bodega
@@ -98,6 +100,7 @@ export const BodegasPage = () => {
         ) : (
           <></>
         )}
+
 
         {bodegas.map(
           (

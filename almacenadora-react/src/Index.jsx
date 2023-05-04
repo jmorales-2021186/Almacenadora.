@@ -13,6 +13,8 @@ import { AddUser } from "./components/User/AddUser";
 import { ListServices } from "./pages/AddServices/ListServices";
 import { AddServices } from "./components/ServicesC/AddServices";
 import { ServicesPage } from "./pages/AddServices/ServicesPage";
+import { ArrendarPage } from "./pages/ArrendarPage/ArrendarPage";
+import {AddArrendamiento} from '../src/pages/ArrendarPage/AddArrendamiento'
 
 export const NombreContexto = createContext();
 
@@ -50,6 +52,14 @@ export const Index = () => {
         {
           path: "/updateB/:id",
           element: <UpdateBodega />,
+        },{
+          path: '/arrendar',
+          element: <ArrendarPage/>
+
+        },{
+          path: '/addArrendar',
+          element: <AddArrendamiento/>
+
         },
         {
           path: "/User",

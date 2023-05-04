@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import {NavBar} from '../../components/NavBar'
 
 export const AddBodega = () => {
   const navigate = useNavigate();
@@ -17,8 +18,8 @@ export const AddBodega = () => {
         size: document.getElementById("inputSize").value,
         price: document.getElementById("inputPrice").value,
         description: document.getElementById("inputDescription").value,
-        availability: document.getElementById("inputAvailability").value,
-      };
+        availability: true
+       };
 
       const { data } = await axios.post(
         "http://localhost:3418/storage/save",
@@ -34,6 +35,9 @@ export const AddBodega = () => {
   };
   return (
     <>
+      <div className="navFix">
+        <NavBar />
+      </div>
       <h1></h1>
       <form className="m-5 text-center">
         <div className="mb-3">
@@ -82,13 +86,13 @@ export const AddBodega = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="inputAvailability" className="form-labler">
+         {/*  <label htmlFor="inputAvailability" className="form-labler">
             Disponibilidad
           </label>
           <select className="form-control" id="inputAvailability">
             <option value="true"> Disponible</option>
             <option value="false">No disponible</option>
-          </select>{" "}
+          </select>{" "} */}
         </div>
 
         <Link to="" onClick={() => addBodegas()}>

@@ -11,17 +11,13 @@ const leaseSchema = mongoose.Schema({
         ref: 'User',
         required: true
     },
-    additionalServices: [{
-        _id:{type: mongoose.Schema.Types.ObjectId, 
-            ref: 'Servicio'}, 
-        name: String,
-        description: String,
-        price: String}],
-    total: Number,
-    startDate: {
-        type: String,
-        required: true
-    },
+    additionalServices:{
+        type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Servicio'
+       
+        }
+       
+    ,
     endDate: {
         type: String,
         required: true

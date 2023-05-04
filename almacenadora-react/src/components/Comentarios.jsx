@@ -49,7 +49,7 @@ export const Comentarios = ({ src, name }) => {
                 </div>
               </div>
             ))}
-            /
+            
           </div>
         </div>
       </div>
