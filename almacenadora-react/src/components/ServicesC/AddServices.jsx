@@ -8,7 +8,10 @@ export const AddServices = () => {
   const navigate = useNavigate();
   const { loggedIn, setLoggedIn, dataUser, setDataUser } =
     useContext(NombreContexto);
-
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    }
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -26,8 +29,8 @@ export const AddServices = () => {
     e.preventDefault();
     console.log(dataUser.role);
     try {
-      if (dataUser.role == "ADMIN") {
-        console.log(form);
+    
+        
         const { data } = await axios.post(
           "http://localhost:3418/servicios/add",
           form,
@@ -37,9 +40,7 @@ export const AddServices = () => {
           alert(data.message);
           navigate("/Services");
         }
-      } else {
-        console.log("aca no pasa nada");
-      }
+    
     } catch (err) {
       console.log(err);
       alert(err.response.data.message);

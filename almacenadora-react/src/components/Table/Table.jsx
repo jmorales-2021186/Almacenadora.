@@ -64,7 +64,7 @@ export const Table = () => {
           <div className="navFix">
             <NavBar></NavBar>
           </div>
-          <div>
+          <div className="contenedor">
             <table className="table-custom">
               <thead>
                 <tr>
@@ -131,10 +131,10 @@ export const Table = () => {
                 )}
               </tbody>
             </table>
-          </div>
           <Link to="addUser">
             <button className="btn btn-success mb-2"> add worker</button>
           </Link>
+          </div>
         </>
       ) : (
         <LoginPage></LoginPage>

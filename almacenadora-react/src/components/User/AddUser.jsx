@@ -144,15 +144,10 @@ export const AddUser = () => {
                 <label className="form-label" htmlFor="">
                   Role
                 </label>
-<select name="role" > <option value="TRABAJADOR">TRABAJADOR</option>
+<select name="role"  className="form-control" > <option value="TRABAJADOR">TRABAJADOR</option>
 <option value="CLIENT">CLIENTE</option>
 <option value="ADMIN">ADMINISTRADOR</option></select>
-                <input
-                  onChange={handleChange}
-                  name="role"
-                  className="form-control"
-                  type="text"
-                />
+            
               </>
             ) : (
               <> </>
