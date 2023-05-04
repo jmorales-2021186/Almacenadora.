@@ -27,13 +27,15 @@ export const NavBar = () => {
               }
 
               <Link>📑Servicios</Link>
-              <Link>Servicios Adicionales</Link>
 
               {/* 
                         <Link>👤{dataUser.role}</Link> */}
 
               {dataUser.role === "ADMIN" ? (
-                <Link to="/addUser">Nuevo Usuario</Link>
+                <>
+                  <Link to="/User">Nuevo Usuario</Link>
+                  <Link to="/Services">Servicios Adicionales</Link>
+                </>
               ) : (
                 <></>
               )}

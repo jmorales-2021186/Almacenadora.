@@ -21,7 +21,14 @@ export const ListarBodegas = ({
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">
-            Disponibilidad: {availability ? "✅Disponible" : "❌NO DISPONIBLE"}
+            Disponibilidad:{" "}
+            {availability ? (
+              <>
+                <span className="text-success">Disponible </span>
+              </>
+            ) : (
+              <span className="text-danger"> NO DISPONIBLE</span>
+            )}
           </p>
           <p className="card-text">📄Descripcion: {description}</p>
           <p className="card-text">🏬Tamaño: {size}</p>
